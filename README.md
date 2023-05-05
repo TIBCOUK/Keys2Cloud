@@ -9,7 +9,7 @@ This workshop will walk you through the basic features of TIBCO Cloud Integratio
 
 **The workshop requires a TIBCO Cloud account.**  You can get started with a [free trial](trialsignup.md) in 30 seconds.  Or use the account that has provided to you by the TIBCO team.
 
-###Getting started
+### Getting started
 When you first connected to the TIBCO Cloud you will be presented with the "hexagon" home page. 
 ![Cloud Integration Home](images/HexHome.png "Old Cloud Integration Home")
 (This will change to show the new home page as the default soon). We recommend that you switch to the new home page by clicking the "Use the new TIBCO Cloud Home" link. 
