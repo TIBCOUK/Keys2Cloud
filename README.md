@@ -1,5 +1,5 @@
 # Keys to the Cloud Workshop
-
+This workshop will walk you through the basic features of TIBCO Cloud Integration by building some simple APIs
 ## Workshop Overview
 [Import and Modify API Specification](0.apispec.md)  
 [Create Mock API](1.mockapi.md)  
@@ -7,24 +7,15 @@
 [Create Offer API](3.TCE.md)  
 [Analyze Data](5.analytics.md)
 
-**The workshop requires a TIBCO Cloud account.**  You can get started with a [free trial](trialsignup.md) in 30 seconds.  
+**The workshop requires a TIBCO Cloud account.**  You can get started with a [free trial](trialsignup.md) in 30 seconds.  Or use the account that has provided to you by the TIBCO team.
 
-<!--
-In addition, you can follow along exactly using a Cloud9 environment, an online IDE offered by AWS.  It's recommended to use Cloud9; although, you may choose to run locally on your system (additional configuration will be required).  
+###Getting started
+When you first connected to the TIBCO Cloud you will be presented with the "hexagon" home page. 
+![Cloud Integration Home](images/HexHome.png "Old Cloud Integration Home")
+(This will change to show the new home page as the default soon). We recommend that you switch to the new home page by clicking the "Use the new TIBCO Cloud Home" link. 
 
-[Cloud9 us-east-1](https://us-east-1.console.aws.amazon.com/cloud9/home/product#)  
-[Cloud9 us-east-2](https://us-east-2.console.aws.amazon.com/cloud9/home/product#)  
-[Cloud9 us-west-2](https://us-west-2.console.aws.amazon.com/cloud9/home/product#)  
-  
-Accept the defaults for creating the environment:  
-![Create Cloud9 Environment](./images/cloud9_setup.png)
-  
-Prepare the environment by running the command below:  
-```bash
-git clone https://github.com/wkarasz/keys2cloud2019.git
-cd keys2cloud2019/scripts
-./prep.sh
-```
--->
+All the following instructions will assume that you are using the new menu layout!
+![Cloud Integration Home](images/NewHome.png "Cloud Integration Home")
+
   
 Next step: [Import API Spec](0.apispec.md)

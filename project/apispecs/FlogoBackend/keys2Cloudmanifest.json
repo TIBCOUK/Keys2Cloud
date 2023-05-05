@@ -1,0 +1,688 @@
+{
+    "name": "K2C_Backend",
+    "description": "",
+    "version": "1.0.0",
+    "type": "flogo",
+    "resources": {
+        "physicalMemory": 1024,
+        "totalMemory": 4096,
+        "cpuQuota": 25
+    },
+    "endpoints": [
+        {
+            "name": "AppHealthCheck",
+            "pingable": true,
+            "protocol": "http",
+            "port": "7777",
+            "type": "private",
+            "ping": "/ping"
+        },
+        {
+            "protocol": "http",
+            "port": "9999",
+            "spec": {
+                "name": "K2C_Backend",
+                "version": "1.0.0"
+            },
+            "title": "ReceiveHTTPMessage",
+            "swagger": {
+                "swagger": "2.0",
+                "info": {
+                    "title": "K2C_Backend",
+                    "version": "1.0.0",
+                    "description": "Simple REST Trigger"
+                },
+                "paths": {
+                    "/v1/aircrafts/{aircraftid}": {
+                        "get": {
+                            "summary": "Aircraft",
+                            "operationId": "get_v1_aircrafts_aircraftid",
+                            "parameters": [
+                                {
+                                    "name": "aircraftid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema1"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/flights/{flightid}": {
+                        "get": {
+                            "summary": "Flights",
+                            "operationId": "get_v1_flights_flightid",
+                            "parameters": [
+                                {
+                                    "name": "flightid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema3"
+                                    }
+                                },
+                                "401": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema4"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema5"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/itineraries/{reservationid}": {
+                        "get": {
+                            "summary": "Itinerary",
+                            "operationId": "get_v1_itineraries_reservationid",
+                            "parameters": [
+                                {
+                                    "name": "reservationid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema6"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema7"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/passengers/{passengerid}": {
+                        "get": {
+                            "summary": "Passengers",
+                            "operationId": "get_v1_passengers_passengerid",
+                            "parameters": [
+                                {
+                                    "name": "passengerid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema8"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema9"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/reservations/{reservationid}": {
+                        "get": {
+                            "summary": "Reservations",
+                            "operationId": "get_v1_reservations_reservationid",
+                            "parameters": [
+                                {
+                                    "name": "reservationid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema10"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema11"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/statuses/{flightid}": {
+                        "get": {
+                            "summary": "Statuses",
+                            "operationId": "get_v1_statuses_flightid",
+                            "parameters": [
+                                {
+                                    "name": "flightid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema12"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema13"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/v1/timecodes/{timecodeid}": {
+                        "get": {
+                            "summary": "TimeCodes",
+                            "operationId": "get_v1_timecodes_timecodeid",
+                            "parameters": [
+                                {
+                                    "name": "timecodeid",
+                                    "in": "path",
+                                    "description": "Request parameter",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema14"
+                                    }
+                                },
+                                "404": {
+                                    "description": "",
+                                    "schema": {
+                                        "$ref": "#/definitions/schema15"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "definitions": {
+                    "schema1": {
+                        "type": "object",
+                        "properties": {
+                            "aircraft": {
+                                "type": "object",
+                                "properties": {
+                                    "aircraftid": {
+                                        "type": "string",
+                                        "default": "111"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "default": "767"
+                                    },
+                                    "seatcapacity": {
+                                        "type": "string",
+                                        "default": "280"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema2": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "aircraftid: 13234234 Not Found"
+                            }
+                        }
+                    },
+                    "schema3": {
+                        "type": "object",
+                        "properties": {
+                            "flight": {
+                                "type": "object",
+                                "properties": {
+                                    "flightid": {
+                                        "type": "string",
+                                        "default": "11111"
+                                    },
+                                    "departurecity": {
+                                        "type": "string",
+                                        "default": "Philadelphia"
+                                    },
+                                    "departuretime": {
+                                        "type": "string",
+                                        "default": "01:00 PM"
+                                    },
+                                    "arrivalcity": {
+                                        "type": "string",
+                                        "default": "Boston"
+                                    },
+                                    "arrivaltime": {
+                                        "type": "string",
+                                        "default": "02:30 PM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema4": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 401
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "Authentication Required"
+                            }
+                        }
+                    },
+                    "schema5": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "flightid: 12334 Not Found"
+                            }
+                        }
+                    },
+                    "schema6": {
+                        "type": "object",
+                        "properties": {
+                            "itinerary": {
+                                "type": "object",
+                                "properties": {
+                                    "passenger": {
+                                        "type": "object",
+                                        "properties": {
+                                            "passengerid": {
+                                                "type": "string",
+                                                "default": "AAAAA"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "default": "John Fisher"
+                                            },
+                                            "street": {
+                                                "type": "string",
+                                                "default": "1 Market Street"
+                                            },
+                                            "city": {
+                                                "type": "string",
+                                                "default": "Philadelphia"
+                                            },
+                                            "zipcode": {
+                                                "type": "string",
+                                                "default": "19350"
+                                            }
+                                        }
+                                    },
+                                    "flight": {
+                                        "type": "object",
+                                        "properties": {
+                                            "flightid": {
+                                                "type": "string",
+                                                "default": "11111"
+                                            },
+                                            "departurecity": {
+                                                "type": "string",
+                                                "default": "Philadelphia"
+                                            },
+                                            "departuretime": {
+                                                "type": "string",
+                                                "default": "01:00 PM"
+                                            },
+                                            "arrivalcity": {
+                                                "type": "string",
+                                                "default": "Boston"
+                                            },
+                                            "arrivaltime": {
+                                                "type": "string",
+                                                "default": "02:30 PM"
+                                            }
+                                        }
+                                    },
+                                    "status": {
+                                        "type": "object",
+                                        "properties": {
+                                            "flightid": {
+                                                "type": "string",
+                                                "default": "11111"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "default": "Delayed"
+                                            },
+                                            "terminal": {
+                                                "type": "string",
+                                                "default": "B"
+                                            },
+                                            "gate": {
+                                                "type": "string",
+                                                "default": "B1"
+                                            }
+                                        }
+                                    },
+                                    "reservation": {
+                                        "type": "object",
+                                        "properties": {
+                                            "reservationid": {
+                                                "type": "string",
+                                                "default": "AAAAA11111"
+                                            },
+                                            "flightid": {
+                                                "type": "string",
+                                                "default": "11111"
+                                            },
+                                            "passengerid": {
+                                                "type": "string",
+                                                "default": "AAAAA"
+                                            },
+                                            "aircraftid": {
+                                                "type": "string",
+                                                "default": "111"
+                                            },
+                                            "timecodeid": {
+                                                "type": "string",
+                                                "default": "201909010100PM"
+                                            },
+                                            "price": {
+                                                "type": "string",
+                                                "default": "250.00"
+                                            },
+                                            "class": {
+                                                "type": "string",
+                                                "default": "Business"
+                                            },
+                                            "rownumber": {
+                                                "type": "string",
+                                                "default": "20"
+                                            },
+                                            "seatnumber": {
+                                                "type": "string",
+                                                "default": "A"
+                                            }
+                                        }
+                                    },
+                                    "aircraft": {
+                                        "type": "object",
+                                        "properties": {
+                                            "aircraftid": {
+                                                "type": "string",
+                                                "default": "111"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "default": "767"
+                                            },
+                                            "seatcapacity": {
+                                                "type": "string",
+                                                "default": "280"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema7": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "reservationid: 1233322 Not Found"
+                            }
+                        }
+                    },
+                    "schema8": {
+                        "type": "object",
+                        "properties": {
+                            "passenger": {
+                                "type": "object",
+                                "properties": {
+                                    "passengerid": {
+                                        "type": "string",
+                                        "default": "AAAAA"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "default": "John Fisher"
+                                    },
+                                    "street": {
+                                        "type": "string",
+                                        "default": "1 Market Street"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "default": "Philadelphia"
+                                    },
+                                    "zipcode": {
+                                        "type": "string",
+                                        "default": "19350"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema9": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "passengerid: 1233 Not Found"
+                            }
+                        }
+                    },
+                    "schema10": {
+                        "type": "object",
+                        "properties": {
+                            "reservation": {
+                                "type": "object",
+                                "properties": {
+                                    "reservationid": {
+                                        "type": "string",
+                                        "default": "AAAAA11111"
+                                    },
+                                    "flightid": {
+                                        "type": "string",
+                                        "default": "11111"
+                                    },
+                                    "passengerid": {
+                                        "type": "string",
+                                        "default": "AAAAA"
+                                    },
+                                    "aircraftid": {
+                                        "type": "string",
+                                        "default": "111"
+                                    },
+                                    "timecodeid": {
+                                        "type": "string",
+                                        "default": "201909010100PM"
+                                    },
+                                    "price": {
+                                        "type": "string",
+                                        "default": "250.00"
+                                    },
+                                    "class": {
+                                        "type": "string",
+                                        "default": "Business"
+                                    },
+                                    "rownumber": {
+                                        "type": "string",
+                                        "default": "20"
+                                    },
+                                    "seatnumber": {
+                                        "type": "string",
+                                        "default": "A"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema11": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "reservationid: AAAAA123123  Not Found"
+                            }
+                        }
+                    },
+                    "schema12": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "object",
+                                "properties": {
+                                    "flightid": {
+                                        "type": "string",
+                                        "default": "11111"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "default": "Delayed"
+                                    },
+                                    "terminal": {
+                                        "type": "string",
+                                        "default": "B"
+                                    },
+                                    "gate": {
+                                        "type": "string",
+                                        "default": "B1"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema13": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "flightid: 12311 Not Found"
+                            }
+                        }
+                    },
+                    "schema14": {
+                        "type": "object",
+                        "properties": {
+                            "timecode": {
+                                "type": "object",
+                                "properties": {
+                                    "timecodeid": {
+                                        "type": "string",
+                                        "default": "201909010100PM"
+                                    },
+                                    "day": {
+                                        "type": "string",
+                                        "default": "09"
+                                    },
+                                    "month": {
+                                        "type": "string",
+                                        "default": "01"
+                                    },
+                                    "year": {
+                                        "type": "string",
+                                        "default": "2019"
+                                    },
+                                    "hour": {
+                                        "type": "string",
+                                        "default": "01"
+                                    },
+                                    "min": {
+                                        "type": "string",
+                                        "default": "00"
+                                    },
+                                    "ampm": {
+                                        "type": "string",
+                                        "default": "PM"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schema15": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "integer",
+                                "default": 404
+                            },
+                            "message": {
+                                "type": "string",
+                                "default": "timecodeid: 1231233 Not Found"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "propertyPrefix": "TCI_FLOGO_USER_",
+    "properties": []
+}

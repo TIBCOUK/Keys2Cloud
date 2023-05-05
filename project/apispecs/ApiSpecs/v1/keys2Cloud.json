@@ -1,0 +1,836 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Keys2Cloud",
+    "x-lastModified": "Aug 30, 2019 12:21PM PST"
+  },
+  "paths": {
+    "/v1/flights/{flightid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/flight"
+            },
+            "examples": {
+              "application/json": {
+                "flight": {
+                  "flightid": "11111",
+                  "departurecity": "Philadelphia",
+                  "departuretime": "01:00 PM",
+                  "arrivalcity": "Boston",
+                  "arrivaltime": "02:30 PM"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error Response",
+            "schema": {
+              "$ref": "#/definitions/error"
+            },
+            "examples": {
+              "application/json": {
+                "code": 401,
+                "message": "Authentication Required"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/errorflights"
+            },
+            "examples": {
+              "application/json": {
+                "code": 404,
+                "message": "Flight Not Found"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "flightid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "get_flightid"
+      }
+    },
+	"/v1/aircrafts/{aircraftid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/aircraft"
+            },
+            "examples": {
+              "application/json": {
+                "aircraft": {
+                  "aircraftid": "111",
+                  "type": "767",
+                  "seatcapacity": "280"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/erroraircrafts"
+            },
+            "examples": {
+              "application/json": {
+                "code": 401,
+                "message": "Authentication Required"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "aircraftid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Aircrafts_aircraftid"
+      }
+    },
+	"/v1/itineraries/{reservationid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/itinerary"
+            },
+            "examples": {
+              "application/json": {
+                "itinerary": {
+                  "passenger": {
+                    "passengerid": "AAAAA",
+                    "name": "John Fisher",
+                    "street": "1 Market Street",
+                    "city": "Philadelphia",
+                    "zipcode": "19350"
+                  },
+                  "flight": {
+                    "flightid": "11111",
+                    "departurecity": "Philadelphia",
+                    "departuretime": "01:00 PM",
+                    "arrivalcity": "Boston",
+                    "arrivaltime": "02:30 PM"
+                  },
+                  "status": {
+                    "flightid": "11111",
+                    "status": "Delayed",
+                    "terminal": "B",
+                    "gate": "B1"
+                  },
+                  "reservation": {
+                    "reservationid": "AAAAA11111",
+                    "flightid": "11111",
+                    "passengerid": "AAAAA",
+                    "aircraftid": "111",
+                    "timecodeid": "201909010100PM",
+                    "price": "250.00",
+                    "class": "Business",
+                    "rownumber": "20",
+                    "seatnumber": "A"
+                  },
+                  "aircraft": {
+                    "aircraftid": "111",
+                    "type": "767",
+                    "seatcapacity": "280"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/erroritinerary"
+            },
+            "examples": {
+              "application/json": {
+                "code": 404,
+                "message": "reservationid: 1233322 Not Found"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "reservationid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Itineraries_reservationid"
+      }
+    },
+	"/v1/passengers/{passengerid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/passenger"
+            },
+            "examples": {
+              "application/json": {
+                "passenger": {
+                  "passengerid": "AAAAA",
+                  "name": "John Fisher",
+                  "street": "1 Market Street",
+                  "city": "Philadelphia",
+                  "zipcode": "19350"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/errorpassenger"
+            },
+            "examples": {
+              "application/json": {
+                "code": 404,
+                "message": "passengerid: 1233 Not Found"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "passengerid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Passengers_passengerid"
+      }
+    },
+    "/v1/statuses/{flightid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/status"
+            },
+            "examples": {
+              "application/json": {
+                "status": {
+                  "flightid": "11111",
+                  "status": "Delayed",
+                  "terminal": "B",
+                  "gate": "B1"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/errorstatuses"
+            },
+            "examples": {
+              "application/json": {
+                "code": 404,
+                "message": "flightid: 12311 Not Found"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "flightid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Statuses_flightid"
+      }
+    },
+    "/v1/timecodes/{timecodeid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/timecode"
+            },
+            "examples": {
+              "application/json": {
+                "timecode": {
+                  "timecodeid": "201909010100PM",
+                  "day": "09",
+                  "month": "01",
+                  "year": "2019",
+                  "hour": "01",
+                  "min": "00",
+                  "ampm": "PM"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/errortimecode"
+            },
+            "examples": {
+              "application/json": {
+                "code": 404,
+                "message": "timecodeid: 1231233 Not Found"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "timecodeid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Timescodes_timecodeid"
+      }
+    },
+    "/v1/reservations/{reservationid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/reservation"
+            },
+            "examples": {
+              "application/json": {
+                "reservation": {
+                  "reservationid": "AAAAA11111",
+                  "flightid": "11111",
+                  "passengerid": "AAAAA",
+                  "aircraftid": "111",
+                  "timecodeid": "201909010100PM",
+                  "price": "250.00",
+                  "class": "Business",
+                  "rownumber": "20",
+                  "seatnumber": "A"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/errroreservations"
+            },
+            "examples": {
+              "application/json": {
+                "code": 401,
+                "message": "Authentication Required"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "reservationid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getV1Reservations_reservationid"
+      }
+    }
+  },
+  "definitions": {
+    "flight": {
+      "type": "object",
+      "properties": {
+        "flight": {
+          "type": "object",
+          "properties": {
+            "flightid": {
+              "type": "string",
+              "default": "11111"
+            },
+            "departurecity": {
+              "type": "string",
+              "default": "Philadelphia"
+            },
+            "departuretime": {
+              "type": "string",
+              "default": "01:00 PM"
+            },
+            "arrivalcity": {
+              "type": "string",
+              "default": "Boston"
+            },
+            "arrivaltime": {
+              "type": "string",
+              "default": "02:30 PM"
+            }
+          }
+        }
+      }
+    },
+	"aircraft": {
+      "type": "object",
+      "properties": {
+        "aircraft": {
+          "type": "object",
+          "properties": {
+            "aircraftid": {
+              "type": "string",
+              "default": "111"
+            },
+            "type": {
+              "type": "string",
+              "default": "767"
+            },
+            "seatcapacity": {
+              "type": "string",
+              "default": "280"
+            }
+          }
+        }
+      }
+    },
+	"itinerary": {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "type": "object",
+          "properties": {
+            "passenger": {
+              "type": "object",
+              "properties": {
+                "passengerid": {
+                  "type": "string",
+                  "default": "AAAAA"
+                },
+                "name": {
+                  "type": "string",
+                  "default": "John Fisher"
+                },
+                "street": {
+                  "type": "string",
+                  "default": "1 Market Street"
+                },
+                "city": {
+                  "type": "string",
+                  "default": "Philadelphia"
+                },
+                "zipcode": {
+                  "type": "string",
+                  "default": "19350"
+                }
+              }
+            },
+            "flight": {
+              "type": "object",
+              "properties": {
+                "flightid": {
+                  "type": "string",
+                  "default": "11111"
+                },
+                "departurecity": {
+                  "type": "string",
+                  "default": "Philadelphia"
+                },
+                "departuretime": {
+                  "type": "string",
+                  "default": "01:00 PM"
+                },
+                "arrivalcity": {
+                  "type": "string",
+                  "default": "Boston"
+                },
+                "arrivaltime": {
+                  "type": "string",
+                  "default": "02:30 PM"
+                }
+              }
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "flightid": {
+                  "type": "string",
+                  "default": "11111"
+                },
+                "status": {
+                  "type": "string",
+                  "default": "Delayed"
+                },
+                "terminal": {
+                  "type": "string",
+                  "default": "B"
+                },
+                "gate": {
+                  "type": "string",
+                  "default": "B1"
+                }
+              }
+            },
+            "reservation": {
+              "type": "object",
+              "properties": {
+                "reservationid": {
+                  "type": "string",
+                  "default": "AAAAA11111"
+                },
+                "flightid": {
+                  "type": "string",
+                  "default": "11111"
+                },
+                "passengerid": {
+                  "type": "string",
+                  "default": "AAAAA"
+                },
+                "aircraftid": {
+                  "type": "string",
+                  "default": "111"
+                },
+                "timecodeid": {
+                  "type": "string",
+                  "default": "201909010100PM"
+                },
+                "price": {
+                  "type": "string",
+                  "default": "250.00"
+                },
+                "class": {
+                  "type": "string",
+                  "default": "Business"
+                },
+                "rownumber": {
+                  "type": "string",
+                  "default": "20"
+                },
+                "seatnumber": {
+                  "type": "string",
+                  "default": "A"
+                }
+              }
+            },
+            "aircraft": {
+              "type": "object",
+              "properties": {
+                "aircraftid": {
+                  "type": "string",
+                  "default": "111"
+                },
+                "type": {
+                  "type": "string",
+                  "default": "767"
+                },
+                "seatcapacity": {
+                  "type": "string",
+                  "default": "280"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+	"passenger": {
+      "type": "object",
+      "properties": {
+        "passenger": {
+          "type": "object",
+          "properties": {
+            "passengerid": {
+              "type": "string",
+              "default": "AAAAA"
+            },
+            "name": {
+              "type": "string",
+              "default": "John Fisher"
+            },
+            "street": {
+              "type": "string",
+              "default": "1 Market Street"
+            },
+            "city": {
+              "type": "string",
+              "default": "Philadelphia"
+            },
+            "zipcode": {
+              "type": "string",
+              "default": "19350"
+            }
+          }
+        }
+      }
+    },
+    "errorpassenger": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "passengerid: 1233 Not Found"
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 401
+        },
+        "message": {
+          "type": "string",
+          "default": "Authentication Required"
+        }
+      }
+    },
+    "errorflights": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "flightid: 12334 Not Found"
+        }
+      }
+    },
+    "erroraircrafts": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "aircraftid: 13234234 Not Found"
+        }
+      }
+    },
+    "erroritinerary": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "reservationid: 1233322 Not Found"
+        }
+      }
+    },
+    "reservation": {
+      "type": "object",
+      "properties": {
+        "reservation": {
+          "type": "object",
+          "properties": {
+            "reservationid": {
+              "type": "string",
+              "default": "AAAAA11111"
+            },
+            "flightid": {
+              "type": "string",
+              "default": "11111"
+            },
+            "passengerid": {
+              "type": "string",
+              "default": "AAAAA"
+            },
+            "aircraftid": {
+              "type": "string",
+              "default": "111"
+            },
+            "timecodeid": {
+              "type": "string",
+              "default": "201909010100PM"
+            },
+            "price": {
+              "type": "string",
+              "default": "250.00"
+            },
+            "class": {
+              "type": "string",
+              "default": "Business"
+            },
+            "rownumber": {
+              "type": "string",
+              "default": "20"
+            },
+            "seatnumber": {
+              "type": "string",
+              "default": "A"
+            }
+          }
+        }
+      }
+    },
+    "errroreservations": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "reservationid: AAAAA123123  Not Found"
+        }
+      }
+    },
+    "errorstatuses": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "flightid: 12311 Not Found"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "object",
+          "properties": {
+            "flightid": {
+              "type": "string",
+              "default": "11111"
+            },
+            "status": {
+              "type": "string",
+              "default": "Delayed"
+            },
+            "terminal": {
+              "type": "string",
+              "default": "B"
+            },
+            "gate": {
+              "type": "string",
+              "default": "B1"
+            }
+          }
+        }
+      }
+    },
+    "timecode": {
+      "type": "object",
+      "properties": {
+        "timecode": {
+          "type": "object",
+          "properties": {
+            "timecodeid": {
+              "type": "string",
+              "default": "201909010100PM"
+            },
+            "day": {
+              "type": "string",
+              "default": "09"
+            },
+            "month": {
+              "type": "string",
+              "default": "01"
+            },
+            "year": {
+              "type": "string",
+              "default": "2019"
+            },
+            "hour": {
+              "type": "string",
+              "default": "01"
+            },
+            "min": {
+              "type": "string",
+              "default": "00"
+            },
+            "ampm": {
+              "type": "string",
+              "default": "PM"
+            }
+          }
+        }
+      }
+    },
+    "errortimecode": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "default": 404
+        },
+        "message": {
+          "type": "string",
+          "default": "timecodeid: 1231233 Not Found"
+        }
+      }
+    }
+  }
+}
