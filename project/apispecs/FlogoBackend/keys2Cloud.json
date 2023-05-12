@@ -278,6 +278,11 @@
                                 "type": "json",
                                 "value": "{\"type\":\"object\",\"properties\":{\"reservationid\":{\"type\":\"string\"}},\"required\":[\"reservationid\"]}",
                                 "fe_metadata": "[{\"parameterName\":\"reservationid\",\"type\":\"string\",\"required\":true}]"
+                            },
+                            "multipartForm": {
+                                "type": "json",
+                                "value": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"array\",\"items\":{}}",
+                                "fe_metadata": "[]"
                             }
                         }
                     },
@@ -1584,7 +1589,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response111\"].code",
-                                    "responseBody": "=$activity[\"200Response111\"].response"
+                                    "responseBody": "=$activity[\"200Response111\"].response.body.passenger"
                                 }
                             }
                         }
@@ -1690,7 +1695,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response222\"].code",
-                                    "responseBody": "=$activity[\"200Response222\"].response"
+                                    "responseBody": "=$activity[\"200Response222\"].response.body.passenger"
                                 }
                             }
                         }
@@ -1747,7 +1752,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response333\"].code",
-                                    "responseBody": "=$activity[\"200Response333\"].response"
+                                    "responseBody": "=$activity[\"200Response333\"].response.body.passenger"
                                 }
                             }
                         }
@@ -1872,7 +1877,7 @@
                         "activity": {
                             "ref": "#httpresponse",
                             "input": {
-                                "trigger": "ReceiveReservations",
+                                "trigger": "ReceiveHTTPMessage",
                                 "responsecode": "200",
                                 "input": {
                                     "mapping": {
@@ -1921,7 +1926,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response111\"].code",
-                                    "responseBody": "=$activity[\"200Response111\"].response"
+                                    "responseBody": "=$activity[\"200Response111\"].response.body.reservation"
                                 }
                             }
                         }
@@ -2031,7 +2036,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response222\"].code",
-                                    "responseBody": "=$activity[\"200Response222\"].response"
+                                    "responseBody": "=$activity[\"200Response222\"].response.body.reservation"
                                 }
                             }
                         }
@@ -2092,7 +2097,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response333\"].code",
-                                    "responseBody": "=$activity[\"200Response333\"].response"
+                                    "responseBody": "=$activity[\"200Response333\"].response.body.reservation"
                                 }
                             }
                         }
@@ -2217,7 +2222,7 @@
                         "activity": {
                             "ref": "#httpresponse",
                             "input": {
-                                "trigger": "ReceiveStatuses",
+                                "trigger": "ReceiveHTTPMessage",
                                 "responsecode": "200",
                                 "input": {
                                     "mapping": {
@@ -2261,7 +2266,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response111\"].code",
-                                    "responseBody": "=$activity[\"200Response111\"].response"
+                                    "responseBody": "=$activity[\"200Response111\"].response.body.status"
                                 }
                             }
                         }
@@ -2366,7 +2371,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response222\"].code",
-                                    "responseBody": "=$activity[\"200Response222\"].response"
+                                    "responseBody": "=$activity[\"200Response222\"].response.body.status"
                                 }
                             }
                         }
@@ -2422,7 +2427,7 @@
                             "settings": {
                                 "mappings": {
                                     "code": "=$activity[\"200Response333\"].code",
-                                    "responseBody": "=$activity[\"200Response333\"].response"
+                                    "responseBody": "=$activity[\"200Response333\"].response.body.status"
                                 }
                             }
                         }
