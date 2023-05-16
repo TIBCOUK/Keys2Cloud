@@ -5,8 +5,9 @@ This workshop will walk you through the basic features of TIBCO Cloud Integratio
 [Create Mock API](1.mockapi.md)  
 [Create API Implementation](2.apiimplementation.md)  
 [Create Flogo Mock App](3.FlogoMock.md)
-[Create Offer API](4.TCE.md)  
-[Analyze Data](5.analytics.md)
+[Create Simple Events App](4.Messaging.md)
+[Create Offer API](5.TCE.md)  
+[Analyze Data](6.analytics.md)
 
 **The workshop requires a TIBCO Cloud account.**  You can get started with a [free trial](trialsignup.md) in 30 seconds.  Or use the account that has provided to you by the TIBCO team.
 
