@@ -148,7 +148,7 @@
                             "ref": "#rest",
                             "input": {
                                 "Method": "GET",
-                                "Uri": "https://integration.cloud.tibcoapps.com:443/2q4svehpwlra2l4hgikbr3mjfkwmoqem/v1/reservations/{reservationid}",
+                                "Uri": "https://eu-west-1.integration.cloud.tibcoapps.com/ca7huojn6n56ihyqqy3ue5ylu4sxaoiy/v1/reservations/{reservationid}",
                                 "Timeout": 0,
                                 "requestType": "application/json",
                                 "Use certificate for verification": false,
@@ -200,7 +200,7 @@
                             "ref": "#rest",
                             "input": {
                                 "Method": "GET",
-                                "Uri": "https://integration.cloud.tibcoapps.com:443/qzqdnunvcodjxlnybwlc37ngxcowm5qc/v1/passengers/{passengerid}",
+                                "Uri": "https://eu-west-1.integration.cloud.tibcoapps.com/374hobh5v5frvvpdiuzljyxjncqmurbh/v1/passengers/{passengerid}",
                                 "Timeout": 0,
                                 "requestType": "application/json",
                                 "Use certificate for verification": false,
@@ -252,7 +252,7 @@
                             "ref": "#rest",
                             "input": {
                                 "Method": "GET",
-                                "Uri": "https://integration.cloud.tibcoapps.com:443/lialm5kffltqoxod6z7gscr7blrzna6b/v1/flights/{flightid}",
+                                "Uri": "https://eu-west-1.integration.cloud.tibcoapps.com/kg7aidkcdpozdjphaclcr2w6rmtsjrhm/v1/flights/{flightid}",
                                 "Timeout": 0,
                                 "requestType": "application/json",
                                 "Use certificate for verification": false,
@@ -304,7 +304,7 @@
                             "ref": "#rest",
                             "input": {
                                 "Method": "GET",
-                                "Uri": "https://integration.cloud.tibcoapps.com:443/7ymfljw462elrwkyh4s4qzctkyhfjlkk/v1/statuses/{flightid}",
+                                "Uri": "https://eu-west-1.integration.cloud.tibcoapps.com/bzl7j4xgd3x4twq73zmwwwqxr27mhb4k/v1/statuses/{flightid}",
                                 "Timeout": 0,
                                 "requestType": "application/json",
                                 "Use certificate for verification": false,

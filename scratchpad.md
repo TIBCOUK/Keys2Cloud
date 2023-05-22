@@ -1,16 +1,16 @@
 # Use this document to copy/paste URLs, Mappings etc. into your Lab
 
-Throughout the Labs, there are a number of URLs, JSCON documents, complex(ish) mappings and so on that are used. We've placed them in this document so that it's easy for you to copy/paste them into the appropriate places within your labs.
+Throughout the Labs, there are a number of URLs, JSON documents, complex(ish) mappings and so on that are used. We've placed them in this document so that it's easy for you to copy/paste them into the appropriate places within your labs.
 
 
-## Lab 1
+## Lab 0
 
 > Signing into the TIBCO Cloud
 
 URL:
 https://cloud.tibco.com
 
-## Lab 4
+## Lab 2
 
 > Implement and Test APIs
 
@@ -26,3 +26,8 @@ Aircraft Response Schema:
 }
 ```
 Test Reservation ID: `AAAAA11111`
+
+## Lab 4
+
+Create or use a role with these permissions:  
+![Roles](images/Misc1.png "Roles")
